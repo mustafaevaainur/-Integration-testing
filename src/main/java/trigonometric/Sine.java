@@ -1,22 +1,30 @@
 package trigonometric;
 
+import interfaces.ISine;
+
 import java.math.BigDecimal;
 
 public class Sine implements ISine {
 
-    public BigDecimal calculate(double value, double eps) {
+    BigDecimal EPS;
+
+    public Sine(double eps) {
+        this.EPS = new BigDecimal(eps);
+    }
+
+    public BigDecimal calculate(double value) {
         BigDecimal result = BigDecimal.ZERO;
-        BigDecimal prevResult = BigDecimal.ZERO;
-        BigDecimal EPS = new BigDecimal(eps);
+        BigDecimal prevResult;
+        BigDecimal minusOne = new BigDecimal(-1);
         int index = 0;
         do {
+            prevResult = result;
             result= result
-                    .add (new BigDecimal(-1))
-                    .pow(index)
-                    .multiply((new BigDecimal(value))
-                            .pow(1+2*index))
-                    .divide(factorial(1+2*index), 30, BigDecimal.ROUND_FLOOR);
-        } while (result.subtract(prevResult).abs().compareTo(EPS) <= 0);
+                    .add (minusOne.pow(index)
+                                    .multiply((new BigDecimal(value)).pow(1+2*index))
+                                    .divide(factorial(1+2*index), 30, BigDecimal.ROUND_FLOOR));
+            index ++;
+        } while (result.subtract(prevResult).abs().compareTo(EPS) >= 0);
         return result;
     }
 

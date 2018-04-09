@@ -1,10 +1,10 @@
 package stub;
 
-import interfaces.INaturalLog;
+import interfaces.ICosine;
 
 import java.math.BigDecimal;
 
-public class NaturalLogStub implements INaturalLog {
+public class CousineStub implements ICosine {
     public BigDecimal calculate(double value) {
         return null;
     }
