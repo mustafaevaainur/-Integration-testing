@@ -1,8 +1,8 @@
-package interfaces;
+package ru.ifmo.interfaces;
 
 import java.math.BigDecimal;
 
-public interface IContangent {
+public interface INaturalLog {
 
     BigDecimal calculate(double value) throws IllegalArgumentException;
 

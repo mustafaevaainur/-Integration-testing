@@ -1,8 +1,5 @@
-import interfaces.ICosine;
-import interfaces.INaturalLog;
-import interfaces.ISine;
-import logarithmic.NaturalLog;
-import trigonometric.Sine;
+import ru.ifmo.interfaces.INaturalLog;
+import ru.ifmo.logarithmic.NaturalLog;
 
 import java.math.BigDecimal;
 

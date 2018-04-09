@@ -1,8 +1,8 @@
-package trigonometric;
+package ru.ifmo.trigonometric;
 
-import interfaces.ICosine;
-import interfaces.ISine;
-import utils.MathUtils;
+import ru.ifmo.interfaces.ICosine;
+import ru.ifmo.interfaces.ISine;
+import ru.ifmo.utils.MathUtils;
 
 import java.math.BigDecimal;
 

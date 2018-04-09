@@ -1,9 +1,8 @@
-package trigonometric;
+package ru.ifmo.trigonometric;
 
-import interfaces.ISine;
-import interfaces.ITangent;
-import org.hamcrest.core.Is;
-import utils.MathUtils;
+import ru.ifmo.interfaces.ISine;
+import ru.ifmo.interfaces.ITangent;
+import ru.ifmo.utils.MathUtils;
 
 import java.math.BigDecimal;
 

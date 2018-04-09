@@ -1,4 +1,4 @@
-package interfaces;
+package ru.ifmo.interfaces;
 
 import java.math.BigDecimal;
 

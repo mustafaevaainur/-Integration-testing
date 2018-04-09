@@ -1,7 +1,7 @@
-package trigonometric;
+package ru.ifmo.trigonometric;
 
-import interfaces.ISine;
-import utils.MathUtils;
+import ru.ifmo.interfaces.ISine;
+import ru.ifmo.utils.MathUtils;
 
 import java.math.BigDecimal;
 

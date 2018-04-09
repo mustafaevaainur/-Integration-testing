@@ -1,6 +1,6 @@
-package trigonometric;
+package ru.ifmo.trigonometric;
 
-import interfaces.ISine;
+import ru.ifmo.interfaces.ISine;
 
 import java.math.BigDecimal;
 

@@ -1,8 +1,8 @@
-package interfaces;
+package ru.ifmo.interfaces;
 
 import java.math.BigDecimal;
 
-public interface ISecant {
+public interface ILogBaseFive {
 
     BigDecimal calculate(double value) throws IllegalArgumentException;
 

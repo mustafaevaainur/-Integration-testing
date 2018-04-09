@@ -1,6 +1,6 @@
-package stub;
+package ru.ifmo.stub;
 
-import interfaces.INaturalLog;
+import ru.ifmo.interfaces.INaturalLog;
 
 import java.math.BigDecimal;
 

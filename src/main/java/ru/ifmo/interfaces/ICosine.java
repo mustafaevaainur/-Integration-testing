@@ -1,8 +1,8 @@
-package interfaces;
+package ru.ifmo.interfaces;
 
 import java.math.BigDecimal;
 
-public interface ISine {
+public interface ICosine {
 
     BigDecimal calculate(double value);
 

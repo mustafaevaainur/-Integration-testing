@@ -1,6 +1,6 @@
-package stub;
+package ru.ifmo.stub;
 
-import interfaces.ISine;
+import ru.ifmo.interfaces.ISine;
 
 import java.math.BigDecimal;
 

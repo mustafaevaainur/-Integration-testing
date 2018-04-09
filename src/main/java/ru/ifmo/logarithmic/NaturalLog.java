@@ -1,6 +1,6 @@
-package logarithmic;
+package ru.ifmo.logarithmic;
 
-import interfaces.INaturalLog;
+import ru.ifmo.interfaces.INaturalLog;
 
 import java.math.BigDecimal;
 

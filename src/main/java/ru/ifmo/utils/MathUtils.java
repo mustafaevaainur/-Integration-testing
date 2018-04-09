@@ -1,4 +1,4 @@
-package utils;
+package ru.ifmo.utils;
 
 import java.math.BigDecimal;
 
