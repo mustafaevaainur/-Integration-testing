@@ -1,6 +1,6 @@
 package logarithmic;
 
-public class lnX {
+public class LnX {
     final double EPS = 0.01;
     final double ln10 = Math.log(10);
 
