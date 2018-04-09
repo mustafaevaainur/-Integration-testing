@@ -2,7 +2,7 @@ package interfaces;
 
 import java.math.BigDecimal;
 
-public interface INaturalLog {
+public interface ISecant {
 
     BigDecimal calculate(double value) throws IllegalArgumentException;
 

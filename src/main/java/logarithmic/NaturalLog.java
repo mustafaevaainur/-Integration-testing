@@ -12,7 +12,7 @@ public class NaturalLog implements INaturalLog {
         this.EPS = new BigDecimal(eps);
     }
 
-    public BigDecimal calculate(double value) {
+    public BigDecimal calculate(double value) throws IllegalArgumentException{
         if(value <= 0) {
             throw new IllegalArgumentException();
         }
@@ -34,25 +34,4 @@ public class NaturalLog implements INaturalLog {
         } while (result.subtract(prevResult).abs().compareTo(EPS) >= 0);
         return result;
     }
-//
-//    public BigDecimal calculate(double value) {
-//        BigDecimal result = BigDecimal.ZERO;
-//        BigDecimal prevResult;
-//        BigDecimal minusOne = new BigDecimal(-1);
-//        BigDecimal val = new BigDecimal(value);
-//        int index = 1;
-//        do {
-//            prevResult = result;
-//            result= result.add(
-//                    BigDecimal.ONE.subtract(val)
-//                    .divide(
-//                            val.add(BigDecimal.ONE).multiply(new BigDecimal(2*index - 1)),
-//                            30,
-//                            BigDecimal.ROUND_FLOOR
-//                    ).pow(2*index - 1)).multiply(new BigDecimal(2));
-//            index ++;
-//        } while (result.subtract(prevResult).abs().compareTo(EPS) >= 0);
-//        return result;
-//    }
-
 }
