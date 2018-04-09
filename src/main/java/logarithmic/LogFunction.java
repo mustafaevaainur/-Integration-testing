@@ -1,6 +1,6 @@
 package logarithmic;
 
-public class Function {
+public class LogFunction {
     public double function(double value){
         Log2 log2 = new Log2();
         Log5 log5 = new Log5();

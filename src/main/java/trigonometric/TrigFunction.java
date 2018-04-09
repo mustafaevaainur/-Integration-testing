@@ -1,6 +1,6 @@
 package trigonometric;
 
-public class Function {
+public class TrigFunction {
     public double function(double value) {
         CosX cos = new CosX();
         CotX cot = new CotX();
