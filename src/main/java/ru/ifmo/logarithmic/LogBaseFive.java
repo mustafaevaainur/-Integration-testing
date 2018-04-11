@@ -5,7 +5,14 @@ import ru.ifmo.interfaces.ILogBaseFive;
 import java.math.BigDecimal;
 
 public class LogBaseFive implements ILogBaseFive{
+    private NaturalLog naturalLog;
+
+    public LogBaseFive(NaturalLog logBase) { this.naturalLog = logBase; }
+
     public BigDecimal calculate(double value) throws IllegalArgumentException {
-        return null;
+        BigDecimal calcLn = naturalLog.calculate(value);
+        BigDecimal calcLn5 = naturalLog.calculate(5);
+        BigDecimal result = calcLn.divide(calcLn5);
+        return result;
     }
 }
