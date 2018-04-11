@@ -5,7 +5,7 @@ import ru.ifmo.trigonometric.Tangent;
 import java.math.BigDecimal;
 import static org.junit.Assert.*;
 
-/*проверка корректности написанных модулей. Не в рамках лабораторной работы*/
+/*проверка корректности написанных модулей. */
 
 public class test {
     final double eps = 0.01;
