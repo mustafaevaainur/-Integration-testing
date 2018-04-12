@@ -21,12 +21,6 @@ public class LogarithmicTests {
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
-    @Test
-    public void Log2TestE() {
-        LogBaseTwo log2 = new LogBaseTwo(ln);
-        BigDecimal sub = BigDecimal.valueOf(Math.log(Math.E) / Math.log(2)).subtract(log2.calculate(Math.E));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
 
     @Test
     public void Log2Test2() {
@@ -35,12 +29,7 @@ public class LogarithmicTests {
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
-    @Test
-    public void Log2Test5() {
-        LogBaseTwo log2 = new LogBaseTwo(ln);
-        BigDecimal sub = BigDecimal.valueOf(Math.log(5) / Math.log(2)).subtract(log2.calculate(5));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
+
 
     @Test
     public void Log2TestZero() {
@@ -94,12 +83,7 @@ public class LogarithmicTests {
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
-    @Test
-    public void Log5TestE() {
-        LogBaseFive log5 = new LogBaseFive(ln);
-        BigDecimal sub = BigDecimal.valueOf(Math.log(Math.E) / Math.log(5)).subtract(log5.calculate(Math.E));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
+
 
     @Test
     public void Log5Test0() {

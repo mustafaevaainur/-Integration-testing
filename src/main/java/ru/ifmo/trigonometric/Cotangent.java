@@ -1,11 +1,12 @@
 package ru.ifmo.trigonometric;
 
+import ru.ifmo.interfaces.ICotangent;
 import ru.ifmo.interfaces.ISine;
 import ru.ifmo.utils.MathUtils;
 
 import java.math.BigDecimal;
 
-public class Cotangent {
+public class Cotangent implements ICotangent {
 
     public ISine iSine;
 
