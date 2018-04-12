@@ -1,3 +1,5 @@
+package ru.ifmo.System;
+
 import ru.ifmo.interfaces.ISystemSolver;
 import ru.ifmo.logarithmic.LogBaseFive;
 import ru.ifmo.logarithmic.LogBaseTwo;
@@ -8,10 +10,11 @@ import java.math.BigDecimal;
 
 public class SystemSolver implements ISystemSolver{
 
-    final double EPS = 0.01;
+    private final double EPS = 0.01;
+
     //  x <= 0 : ((((((sec(x) / tan(x)) / cot(x)) * cos(x)) * sec(x)) + (cos(x) / sin(x))) - (sin(x) + sin(x)))
 
-    public BigDecimal trigonometricFunction(double value) {
+    private BigDecimal trigonometricFunction(double value) {
         Sine fsin = new Sine(EPS);
         Cosine fcos = new Cosine(fsin);
         Secant fsec = new Secant(fsin);
@@ -33,7 +36,7 @@ public class SystemSolver implements ISystemSolver{
 
     //  x > 0 : (((((log_2(x) + log_2(x)) - log_2(x)) * log_2(x)) * log_2(x)) / log_5(x))
 
-    public BigDecimal logarithmicFunction(double value) {
+    private BigDecimal logarithmicFunction(double value) {
         NaturalLog ln = new NaturalLog(EPS);
         LogBaseTwo flog2 = new LogBaseTwo(ln);
         LogBaseFive flog5 = new LogBaseFive(ln);

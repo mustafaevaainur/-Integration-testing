@@ -1,12 +1,16 @@
 
 import org.junit.Test;
+import ru.ifmo.System.SystemSolver;
+import ru.ifmo.interfaces.ISystemSolver;
+import ru.ifmo.stub.SystemSolverStub;
 
 import java.math.BigDecimal;
 
 import static org.junit.Assert.*;
 public class SystemSolverTest {
 
-    private SystemSolver system = new SystemSolver();
+     /*ISystemSolver system = new SystemSolver();*/
+     ISystemSolver system = new SystemSolverStub();
     final double EPS = 0.1;
 
     @Test

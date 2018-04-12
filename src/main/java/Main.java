@@ -1,6 +1,5 @@
-import ru.ifmo.interfaces.INaturalLog;
+import ru.ifmo.System.SystemSolver;
 import ru.ifmo.interfaces.ISine;
-import ru.ifmo.logarithmic.NaturalLog;
 import ru.ifmo.trigonometric.Cosine;
 import ru.ifmo.trigonometric.Sine;
 
