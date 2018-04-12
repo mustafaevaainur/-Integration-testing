@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 class TrigonometricTests {
     private final double EPS = 0.1;
 
-    /*private Sine sin = new Sine(EPS);
+   /* private ISine sin = new Sine(EPS);
     private ICosine cos = new Cosine(sin);
     private ITangent tan = new Tangent(sin);
     private ICotangent cotangent = new Cotangent(sin);

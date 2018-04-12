@@ -1,14 +1,15 @@
 package ru.ifmo.logarithmic;
 
 import ru.ifmo.interfaces.ILogBaseTwo;
+import ru.ifmo.interfaces.INaturalLog;
 
 import java.math.BigDecimal;
 
 public class LogBaseTwo implements ILogBaseTwo{
 
-    private NaturalLog naturalLog;
+    private INaturalLog naturalLog;
 
-    public LogBaseTwo(NaturalLog logBase) { this.naturalLog = logBase; }
+    public LogBaseTwo(INaturalLog logBase) { this.naturalLog = logBase; }
 
     public BigDecimal calculate(double value) throws IllegalArgumentException {
         BigDecimal calcLn = naturalLog.calculate(value);
