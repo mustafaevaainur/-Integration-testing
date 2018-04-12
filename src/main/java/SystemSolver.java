@@ -1,3 +1,4 @@
+import ru.ifmo.interfaces.ISystemSolver;
 import ru.ifmo.logarithmic.LogBaseFive;
 import ru.ifmo.logarithmic.LogBaseTwo;
 import ru.ifmo.logarithmic.NaturalLog;
@@ -5,7 +6,7 @@ import ru.ifmo.trigonometric.*;
 
 import java.math.BigDecimal;
 
-public class SystemSolver {
+public class SystemSolver implements ISystemSolver{
 
     final double EPS = 0.01;
     //  x <= 0 : ((((((sec(x) / tan(x)) / cot(x)) * cos(x)) * sec(x)) + (cos(x) / sin(x))) - (sin(x) + sin(x)))
@@ -42,7 +43,7 @@ public class SystemSolver {
         return system;
     }
 
-    public BigDecimal systemSolve(double value) {
+    public BigDecimal calculate(double value) {
         if (value <= 0) {
             return trigonometricFunction(value);
         } else {
