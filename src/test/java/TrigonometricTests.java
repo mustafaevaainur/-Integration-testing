@@ -32,6 +32,42 @@ class TrigonometricTests {
     }*/
 
     @Test
+    void TestSine0() {
+        BigDecimal sub = BigDecimal.valueOf(Math.sin(0)).subtract(sin.calculate(0));
+        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    }
+
+    @Test
+    void TestSinePI() {
+        BigDecimal sub = BigDecimal.valueOf(Math.sin(Math.PI)).subtract(sin.calculate(Math.PI));
+        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    }
+
+    @Test
+    void TestSinePIdiv() {
+        BigDecimal sub = BigDecimal.valueOf(Math.sin(Math.PI/2)).subtract(sin.calculate(Math.PI/2));
+        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    }
+    @Test
+    void TestSinePI6() {
+        BigDecimal sub = BigDecimal.valueOf(Math.sin(Math.PI/6)).subtract(sin.calculate(Math.PI/6));
+        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    }
+
+    @Test
+    void TestSineminPI3() {
+        BigDecimal sub = BigDecimal.valueOf(Math.sin(-Math.PI/3)).subtract(sin.calculate(-Math.PI/3));
+        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    }
+
+    @Test
+    void TestSinePI4() {
+        BigDecimal sub = BigDecimal.valueOf(Math.sin(Math.PI/4)).subtract(sin.calculate(Math.PI/4));
+        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    }
+
+
+    @Test
     void TestCosine0() {
         BigDecimal sub = BigDecimal.valueOf(Math.cos(0)).subtract(cos.calculate(0));
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
@@ -41,7 +77,6 @@ class TrigonometricTests {
     void TestCosinePIdiv2() {
         BigDecimal sub = BigDecimal.valueOf(Math.cos(Math.PI / 2))
                 .subtract(cos.calculate(Math.PI / 2));
-        System.out.println("cospi2 "+sub);
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
@@ -49,7 +84,6 @@ class TrigonometricTests {
     void TestCosineMinPIdiv2() {
         BigDecimal sub = BigDecimal.valueOf(Math.cos(-Math.PI / 2))
                 .subtract(cos.calculate(-Math.PI / 2));
-        System.out.println("cosminpi2 "+sub);
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
@@ -86,7 +120,6 @@ class TrigonometricTests {
 
         BigDecimal sub = BigDecimal.valueOf(Math.tan(-Math.PI)).
                 subtract(tan.calculate(-Math.PI));
-        System.out.println("tgminpi "+sub);
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
@@ -94,14 +127,12 @@ class TrigonometricTests {
     void TestTangentPIdiv4() {
         BigDecimal sub = BigDecimal.valueOf(Math.tan(Math.PI / 4)).
                 subtract(tan.calculate(Math.PI / 4));
-        System.out.println("tgpi4 "+sub);
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
     @Test
     void TestTangentMinPIdiv4() {
         BigDecimal sub = BigDecimal.valueOf(Math.tan(-Math.PI / 4)).
                 subtract(tan.calculate(-Math.PI / 4));
-        System.out.println("tgminpi4 "+sub);
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
@@ -156,7 +187,6 @@ class TrigonometricTests {
     void TestCotangentPI2() {
         BigDecimal sub = BigDecimal.valueOf(Math.cos(Math.PI / 2) / Math.sin(Math.PI / 2))
                 .subtract(cotangent.calculate(Math.PI / 2));
-        System.out.println("cotpi2 "+sub);
         assertEquals(true, sub.abs().compareTo(BigDecimal.valueOf(EPS)) < 0);
     }
 
