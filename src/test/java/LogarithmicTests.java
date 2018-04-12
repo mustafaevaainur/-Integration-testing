@@ -7,6 +7,7 @@ import ru.ifmo.logarithmic.LogBaseTwo;
 import ru.ifmo.logarithmic.NaturalLog;
 import ru.ifmo.stub.LogBaseFiveStub;
 import ru.ifmo.stub.LogBaseTwoStub;
+import ru.ifmo.stub.NaturalLogStub;
 
 import static org.junit.Assert.*;
 
@@ -14,11 +15,14 @@ import java.math.BigDecimal;
 
 public class LogarithmicTests {
     final double EPS = 0.001;
-    /*INaturalLog log = new NaturalLog(EPS);
+
+
+    INaturalLog log = new NaturalLogStub();
+    /*INaturalLog log = new NaturalLog(EPS);*/
     ILogBaseTwo log2 = new LogBaseTwo(log);
-    ILogBaseFive log5 = new LogBaseFive(log);*/
-    ILogBaseTwo log2 = new LogBaseTwoStub();
-    ILogBaseFive log5 = new LogBaseFiveStub();
+    ILogBaseFive log5 = new LogBaseFive(log);
+    /*ILogBaseTwo log2 = new LogBaseTwoStub();
+    ILogBaseFive log5 = new LogBaseFiveStub();*/
 
     @Test
     public void Log2Test05() {
