@@ -8,7 +8,7 @@ import ru.ifmo.trigonometric.*;
 
 import java.math.BigDecimal;
 
-public class SystemSolver{
+public class CompoundedFunction {
 
     final double EPS = 0.01;
     //  x <= 0 : ((((((sec(x) / tan(x)) / cot(x)) * cos(x)) * sec(x)) + (cos(x) / sin(x))) - (sin(x) + sin(x)))
@@ -22,14 +22,14 @@ public class SystemSolver{
     ILogBaseTwo flog2;
     ILogBaseFive flog5;
 
-    public SystemSolver(ISine fsin,
-                        ICosine fcos,
-                        ISecant fsec,
-                        ITangent ftan,
-                        ICotangent fcot,
-                        INaturalLog ln,
-                        ILogBaseTwo flog2,
-                        ILogBaseFive flog5) {
+    public CompoundedFunction(ISine fsin,
+                              ICosine fcos,
+                              ISecant fsec,
+                              ITangent ftan,
+                              ICotangent fcot,
+                              INaturalLog ln,
+                              ILogBaseTwo flog2,
+                              ILogBaseFive flog5) {
         this.fsin = fsin;
         this.fcos = fcos;
         this.fsec = fsec;

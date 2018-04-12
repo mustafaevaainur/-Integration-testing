@@ -8,16 +8,12 @@ import static org.junit.Assert.*;
 class TrigonometricTests {
     private final double EPS = 0.001;
 
-    private ISine sin = new Sine(EPS);
+    private ISine sin = new SineStub();
+   /* private ISine sin = new Sine(EPS);*/
     private ICosine cos = new Cosine(sin);
     private ITangent tan = new Tangent(sin);
     private ICotangent cotangent = new Cotangent(sin);
     private ISecant sec = new Secant(sin);
-    /*private ISine sin = new SineStub();
-    private ICosine cos = new CosineStub(sin);
-    private ITangent tan = new TangentStub(sin);
-    private ICotangent cotangent = new CotangentStub(sin);
-    private ISecant sec = new SecantStub(sin);*/
 
     @Test
     void TestCosine0() {

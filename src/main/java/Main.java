@@ -2,7 +2,7 @@ import ru.ifmo.interfaces.*;
 import ru.ifmo.logarithmic.LogBaseFive;
 import ru.ifmo.logarithmic.LogBaseTwo;
 import ru.ifmo.logarithmic.NaturalLog;
-import ru.ifmo.system.SystemSolver;
+import ru.ifmo.system.CompoundedFunction;
 import ru.ifmo.trigonometric.*;
 
 import java.math.BigDecimal;
@@ -18,7 +18,7 @@ public class Main {
         INaturalLog ln = new NaturalLog(0.001);
         ILogBaseTwo flog2 = new LogBaseTwo(ln);
         ILogBaseFive flog5 = new LogBaseFive(ln);
-        SystemSolver system = new SystemSolver(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
+        CompoundedFunction system = new CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
 
 
         double value = -1.4;
@@ -41,8 +41,8 @@ public class Main {
         /* BigDecimal mathLogResult = BigDecimal.valueOf((((((log2+log2)-log2)*log2)*log2)/log5));*/
 
         BigDecimal result = system.calculate(value);
-        System.out.println(result);
-        System.out.println("MathTangResult:" + mathTangResult);
+        java.lang.System.out.println(result);
+        java.lang.System.out.println("MathTangResult:" + mathTangResult);
         /*system.out.println("MathLogResult:" + mathLogResult);*/
     }
 }

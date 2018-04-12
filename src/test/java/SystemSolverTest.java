@@ -4,8 +4,7 @@ import ru.ifmo.interfaces.*;
 import ru.ifmo.logarithmic.LogBaseFive;
 import ru.ifmo.logarithmic.LogBaseTwo;
 import ru.ifmo.logarithmic.NaturalLog;
-import ru.ifmo.stub.SystemSolverStub;
-import ru.ifmo.system.SystemSolver;
+import ru.ifmo.system.CompoundedFunction;
 import ru.ifmo.trigonometric.*;
 
 import java.math.BigDecimal;
@@ -23,12 +22,12 @@ public class SystemSolverTest {
     INaturalLog ln = new NaturalLog(EPS);
     ILogBaseTwo flog2 = new LogBaseTwo(ln);
     ILogBaseFive flog5 = new LogBaseFive(ln);
-    SystemSolver system = new SystemSolver(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
+    CompoundedFunction system = new CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
 
 
     @Test
     public void SystemTests2(){
-        double value = 2;
+        double value = 2.0;
         double log2 = Math.log(value)/Math.log(2);
         double log5 = Math.log(value)/Math.log(5);
 
@@ -68,7 +67,7 @@ public class SystemSolverTest {
     }
 
     @Test
-    public void SystemTestsMinPIdivNearZero(){
+    public void SystemTestsNearZero(){
         double value = -0.01;
         double sec = 1/Math.cos(value);
         double cot = Math.cos(value)/Math.sin(value);
@@ -81,4 +80,5 @@ public class SystemSolverTest {
         BigDecimal sub = system.calculate(value).subtract(mathTangResult);
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
+
 }

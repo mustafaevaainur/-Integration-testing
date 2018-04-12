@@ -12,10 +12,15 @@ public class SineStub implements ISine {
         double sqrt3div2 = Math.sin(-Math.PI/3);
         if (value == 0) return  BigDecimal.valueOf(Math.sin(0));
         if (value == Math.PI) return BigDecimal.valueOf(Math.sin(Math.PI));
+        if (value == -Math.PI) return BigDecimal.valueOf(Math.sin(-Math.PI));
         if (value == Math.PI / 2) return BigDecimal.valueOf(Math.sin(Math.PI/2));
         if (value == Math.PI / 6) return BigDecimal.valueOf(Math.sin(Math.PI/6));
         if (value == Math.PI / 4) return BigDecimal.valueOf(sqrt2div2);
         if (value == -Math.PI / 3) return BigDecimal.valueOf(sqrt3div2);
+        if (value == Math.PI / 3) return BigDecimal.valueOf(Math.sin(Math.PI/3));
+        if (value == -Math.PI / 2) return BigDecimal.valueOf(Math.sin(-Math.PI/2));
+        if (value == -Math.PI / 6) return BigDecimal.valueOf(Math.sin(-Math.PI/6));
+        if (value == -Math.PI / 4) return BigDecimal.valueOf(Math.sin(-Math.PI/4));
         else return null;
     }
 }

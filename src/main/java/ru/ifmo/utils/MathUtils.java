@@ -11,6 +11,12 @@ public class MathUtils implements IMathUtils {
     private static final BigDecimal TWO = BigDecimal.valueOf(2L);
 
     public BigDecimal sqrt(BigDecimal value) {
+        if(value.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException();
+        }
+        if(MathUtils.nearZero(value)) {
+            return BigDecimal.ZERO;
+        }
         MathContext mc = new MathContext(20);
         BigDecimal g = value.divide(TWO, mc);
         boolean done = false;
