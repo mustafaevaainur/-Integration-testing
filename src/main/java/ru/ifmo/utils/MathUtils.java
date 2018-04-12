@@ -1,19 +1,16 @@
 package ru.ifmo.utils;
 
+import ru.ifmo.interfaces.IMathUtils;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class MathUtils {
+public class MathUtils implements IMathUtils {
 
     private static BigDecimal EPS = BigDecimal.valueOf(0.00001);
-
-    /*public static BigDecimal sqrt(BigDecimal value) {
-      return new BigDecimal(Math.sqrt(value.doubleValue()));
-    }*/
-
     private static final BigDecimal TWO = BigDecimal.valueOf(2L);
 
-    public static BigDecimal sqrt(BigDecimal value) {
+    public BigDecimal sqrt(BigDecimal value) {
         MathContext mc = new MathContext(20);
         BigDecimal g = value.divide(TWO, mc);
         boolean done = false;

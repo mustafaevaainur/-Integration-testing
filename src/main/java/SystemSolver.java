@@ -12,20 +12,22 @@ public class SystemSolver implements ISystemSolver{
     //  x <= 0 : ((((((sec(x) / tan(x)) / cot(x)) * cos(x)) * sec(x)) + (cos(x) / sin(x))) - (sin(x) + sin(x)))
 
     public BigDecimal trigonometricFunction(double value) {
-        Sine sin = new Sine(EPS);
-        Cosine cos = new Cosine(sin);
-        Secant sec = new Secant(sin);
-        Tangent tan = new Tangent(sin);
-        Cotangent cot = new Cotangent(sin);
+        Sine fsin = new Sine(EPS);
+        Cosine fcos = new Cosine(fsin);
+        Secant fsec = new Secant(fsin);
+        Tangent ftan = new Tangent(fsin);
+        Cotangent fcot = new Cotangent(fsin);
 
-        BigDecimal firstPart = (sec.calculate(value).divide(tan.calculate(value), 30, BigDecimal.ROUND_FLOOR)
-                .divide(cot.calculate(value), 30, BigDecimal.ROUND_FLOOR)
-                .multiply(cos.calculate(value))
-                .multiply(sec.calculate(value)));
-        BigDecimal secondPart = ((cos.calculate(value).divide(sin.calculate(value), 30, BigDecimal.ROUND_FLOOR))
-                .subtract((sin.calculate(value).add(sin.calculate(value)))));
+        BigDecimal sin = fsin.calculate(value);
+        BigDecimal cos = fcos.calculate(value);
+        BigDecimal tan = ftan.calculate(value);
+        BigDecimal cot = fcot.calculate(value);
+        BigDecimal sec = fsec.calculate(value);
 
-        BigDecimal system = firstPart.add(secondPart);
+        BigDecimal system = (((sec.divide((tan), 30, BigDecimal.ROUND_FLOOR)
+                .divide((cot), 30, BigDecimal.ROUND_FLOOR)
+                .multiply(cos)).multiply(sec)).add(cos.divide((sin), 30, BigDecimal.ROUND_FLOOR))
+                .subtract((sin.add(sin))));
         return system;
     }
 
@@ -33,13 +35,16 @@ public class SystemSolver implements ISystemSolver{
 
     public BigDecimal logarithmicFunction(double value) {
         NaturalLog ln = new NaturalLog(EPS);
-        LogBaseTwo log2 = new LogBaseTwo(ln);
-        LogBaseFive log5 = new LogBaseFive(ln);
+        LogBaseTwo flog2 = new LogBaseTwo(ln);
+        LogBaseFive flog5 = new LogBaseFive(ln);
 
-        BigDecimal system = ((((log2.calculate(value)
-                .add(log2.calculate(value))).subtract(log2.calculate(value)))
-                .multiply(log2.calculate(value))
-                .multiply(log2.calculate(value))).divide(log5.calculate(value)));
+        BigDecimal log2 = flog2.calculate(value);
+        BigDecimal log5 = flog5.calculate(value);
+        BigDecimal system = (((((log2.add(log2))
+                                        .subtract(log2))
+                                        .multiply(log2))
+                                        .multiply(log2))
+                .divide((log5), 30, BigDecimal.ROUND_FLOOR));
         return system;
     }
 

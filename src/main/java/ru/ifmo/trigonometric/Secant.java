@@ -15,6 +15,7 @@ public class Secant implements ISecant {
     }
 
     public BigDecimal calculate(double value) throws IllegalArgumentException {
+        MathUtils MathUtils = new MathUtils();
         BigDecimal calcSine = iSine.calculate(value);
         BigDecimal cos = MathUtils.sqrt(BigDecimal.ONE.subtract(calcSine.multiply(calcSine)));
         if(MathUtils.nearZero(cos)) {

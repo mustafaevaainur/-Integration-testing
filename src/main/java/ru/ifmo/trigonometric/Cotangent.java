@@ -14,11 +14,10 @@ public class Cotangent implements ICotangent {
         this.iSine = iSine;
     }
 
-    public BigDecimal calculate(double value) throws IllegalArgumentException {
+    public BigDecimal calculate(double value) {
+        MathUtils MathUtils = new MathUtils();
         BigDecimal calcSine = iSine.calculate(value);
-        if(MathUtils.nearZero(calcSine)) {
-            throw new IllegalArgumentException();
-        }
+
         BigDecimal first = calcSine.multiply(calcSine);
         BigDecimal cos= MathUtils.sqrt(BigDecimal.ONE.subtract(first));
         return cos.divide(calcSine, 30, BigDecimal.ROUND_FLOOR);
