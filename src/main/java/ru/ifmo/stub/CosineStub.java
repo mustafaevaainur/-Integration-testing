@@ -9,13 +9,14 @@ public class CosineStub implements ICosine {
     public CosineStub(ISine sine) {}
 
     public BigDecimal calculate(double value) {
-        double sqrt2div2 = Math.cos(Math.PI/4);
-        double sqrt3div2 = Math.cos(Math.PI/3);
-        if (value == 0) return  BigDecimal.valueOf(Math.cos(0));
-        if (value == Math.PI / 2) return BigDecimal.valueOf(Math.cos(Math.PI/2));
-        if (value == Math.PI / 4) return BigDecimal.valueOf(sqrt2div2);
-        if (value == -Math.PI / 2) return BigDecimal.valueOf(Math.cos(-Math.PI/2));
-        if (value == -Math.PI/4) return BigDecimal.valueOf(Math.cos(-Math.PI/4));
-        else return BigDecimal.valueOf(Math.cos(value));
+
+        if (value == -1.3d) return BigDecimal.valueOf(Math.cos(-1.3d));
+        if (value == -0.01d) return  BigDecimal.valueOf(Math.cos(-0.01d));
+        if (value == -5d) return BigDecimal.valueOf(Math.cos(-5d));
+        if (value == -5.5d) return BigDecimal.valueOf(Math.cos(-5.5d));
+        if (value == -7d) return BigDecimal.valueOf(Math.cos(-7d));
+        if (value == -3d) return BigDecimal.valueOf(Math.cos(-3d));
+        if (value == -6.7d) return BigDecimal.valueOf(Math.cos(-6.7d));
+        else return null;
     }
 }

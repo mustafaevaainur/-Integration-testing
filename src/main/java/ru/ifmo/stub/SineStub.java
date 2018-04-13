@@ -8,19 +8,13 @@ public class SineStub implements ISine {
 
 
     public BigDecimal calculate(double value) {
-        double sqrt2div2 = Math.sin(Math.PI/4);
-        double sqrt3div2 = Math.sin(-Math.PI/3);
-        if (value == 0) return  BigDecimal.valueOf(Math.sin(0));
-        if (value == Math.PI) return BigDecimal.valueOf(Math.sin(Math.PI));
-        if (value == -Math.PI) return BigDecimal.valueOf(Math.sin(-Math.PI));
-        if (value == Math.PI / 2) return BigDecimal.valueOf(Math.sin(Math.PI/2));
-        if (value == Math.PI / 6) return BigDecimal.valueOf(Math.sin(Math.PI/6));
-        if (value == Math.PI / 4) return BigDecimal.valueOf(sqrt2div2);
-        if (value == -Math.PI / 3) return BigDecimal.valueOf(sqrt3div2);
-        if (value == Math.PI / 3) return BigDecimal.valueOf(Math.sin(Math.PI/3));
-        if (value == -Math.PI / 2) return BigDecimal.valueOf(Math.sin(-Math.PI/2));
-        if (value == -Math.PI / 6) return BigDecimal.valueOf(Math.sin(-Math.PI/6));
-        if (value == -Math.PI / 4) return BigDecimal.valueOf(Math.sin(-Math.PI/4));
-        else return BigDecimal.valueOf(Math.sin(value));
+        if (value == -1.3d) return BigDecimal.valueOf(Math.sin(-1.3d));
+        if (value == -0.01d) return  BigDecimal.valueOf(Math.sin(-0.01d));
+        if (value == -5d) return BigDecimal.valueOf(Math.sin(-5d));
+        if (value == -5.5d) return BigDecimal.valueOf(Math.sin(-5.5d));
+        if (value == -7d) return BigDecimal.valueOf(Math.sin(-7d));
+        if (value == -3d) return BigDecimal.valueOf(Math.sin(-3d));
+        if (value == -6.7d) return BigDecimal.valueOf(Math.sin(-6.7d));
+        else return null;
     }
 }
