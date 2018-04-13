@@ -2,7 +2,7 @@ package ru.ifmo.stub;
 
 import java.math.BigDecimal;
 
-public class SystemSolverStub {
+public class CompoundedFunctionStub {
     public BigDecimal calculate(double value) throws IllegalArgumentException {
         double log2 = Math.log(value) / Math.log(2);
         double log5 = Math.log(value) / Math.log(5);
@@ -17,7 +17,10 @@ public class SystemSolverStub {
         if (value == -1.3) return BigDecimal.valueOf(((((sec / tan / cot) * cosn) * sec) + (cosn / sin)) - (sin + sin));
         if (value == -0.01)
             return BigDecimal.valueOf(((((sec / tan / cot) * cosn) * sec) + (cosn / sin)) - (sin + sin));
-
+        if (value == -5.5)
+            return BigDecimal.valueOf(((((sec / tan / cot) * cosn) * sec) + (cosn / sin)) - (sin + sin));
+        if (value == -5)
+            return BigDecimal.valueOf(((((sec / tan / cot) * cosn) * sec) + (cosn / sin)) - (sin + sin));
         else return null;
     }
 }

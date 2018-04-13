@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 import ru.ifmo.interfaces.IMathUtils;
+import ru.ifmo.stub.MathUtilsStub;
 import ru.ifmo.utils.MathUtils;
 
 import static org.junit.Assert.*;
@@ -7,7 +8,8 @@ import java.math.BigDecimal;
 
 public class MathUtilsTest {
     final double EPS = 0.001;
-    IMathUtils mathUtils = new MathUtils();
+   /* IMathUtils mathUtils = new MathUtils();*/
+    IMathUtils mathUtils = new MathUtilsStub();
 
     @Test
     public void sqrtTest2(){

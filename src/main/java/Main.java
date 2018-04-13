@@ -21,7 +21,7 @@ public class Main {
         CompoundedFunction system = new CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
 
 
-        double value = -1.4;
+        double value = -5;
 
         double sec = 1 / Math.cos(value);
         double cot = Math.cos(value) / Math.sin(value);

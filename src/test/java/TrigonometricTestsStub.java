@@ -1,16 +1,17 @@
 import org.junit.jupiter.api.Test;
 import ru.ifmo.interfaces.*;
-import ru.ifmo.stub.*;
+import ru.ifmo.stub.SineStub;
 import ru.ifmo.trigonometric.*;
-import java.math.BigDecimal;
-import static org.junit.Assert.*;
 
-class TrigonometricTests {
+import java.math.BigDecimal;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+class TrigonometricTestsStub {
     private final double EPS = 0.001;
 
-
-    /*private ISine sin = new SineStub();*/
-    private ISine sin = new Sine(EPS);
+    private ISine sin = new SineStub();
     private ICosine cos = new Cosine(sin);
     private ITangent tan = new Tangent(sin);
     private ICotangent cotangent = new Cotangent(sin);
