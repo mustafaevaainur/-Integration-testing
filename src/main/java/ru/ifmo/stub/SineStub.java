@@ -21,6 +21,6 @@ public class SineStub implements ISine {
         if (value == -Math.PI / 2) return BigDecimal.valueOf(Math.sin(-Math.PI/2));
         if (value == -Math.PI / 6) return BigDecimal.valueOf(Math.sin(-Math.PI/6));
         if (value == -Math.PI / 4) return BigDecimal.valueOf(Math.sin(-Math.PI/4));
-        else return null;
+        else return BigDecimal.valueOf(Math.sin(value));
     }
 }

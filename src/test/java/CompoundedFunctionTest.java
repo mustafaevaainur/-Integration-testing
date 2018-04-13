@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import static org.junit.Assert.*;
 public class CompoundedFunctionTest {
 
-    final double EPS = 0.1;
+    final double EPS = 0.001;
 
     Sine fsin = new Sine(EPS);
     ICosine fcos = new Cosine(fsin);
@@ -22,16 +22,8 @@ public class CompoundedFunctionTest {
     INaturalLog ln = new NaturalLog(EPS);
     ILogBaseTwo flog2 = new LogBaseTwo(ln);
     ILogBaseFive flog5 = new LogBaseFive(ln);
-    /*ISine fsin = new SineStub();
-    ICosine fcos = new CosineStub(fsin);
-    ISecant fsec = new SecantStub(fsin);
-    ITangent ftan = new TangentStub(fsin);
-    ICotangent fcot = new CotangentStub(fsin);
-    INaturalLog ln = new NaturalLogStub(EPS);
-    ILogBaseTwo flog2 = new LogBaseTwoStub();
-    ILogBaseFive flog5 = new LogBaseFiveStub();*/
 
-    ru.ifmo.system.CompoundedFunction system = new ru.ifmo.system.CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
+    CompoundedFunction system = new CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
 
 
     @Test

@@ -11,6 +11,6 @@ public class NaturalLogStub implements INaturalLog {
         if (value == 1) return BigDecimal.valueOf(Math.log(1));
         if (value == 2) return BigDecimal.valueOf(Math.log(2));
         if (value == 5) return BigDecimal.valueOf(Math.log(5));
-        else return null;
+        else return BigDecimal.valueOf(Math.log(value));
     }
 }

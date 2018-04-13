@@ -18,8 +18,10 @@ public class CotangentStub implements ICotangent {
                 .divide(BigDecimal.valueOf(Math.sin(Math.PI/2)), 30, BigDecimal.ROUND_FLOOR);
         if (value == -Math.PI / 2) return BigDecimal.valueOf(Math.cos(-Math.PI/2))
                 .divide(BigDecimal.valueOf(Math.sin(-Math.PI/2)), 30, BigDecimal.ROUND_FLOOR);
-
-        else return null;
+        else {
+            return BigDecimal.valueOf(Math.cos(value))
+                    .divide(BigDecimal.valueOf(Math.sin(value)), 30, BigDecimal.ROUND_FLOOR);
+        }
     }
 
 }

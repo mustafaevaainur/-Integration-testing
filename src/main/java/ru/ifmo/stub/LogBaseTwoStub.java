@@ -10,6 +10,7 @@ public class LogBaseTwoStub implements ILogBaseTwo {
         if (value == 1) return BigDecimal.valueOf(Math.log(1) / Math.log(2));
         if (value == 2) return BigDecimal.valueOf(Math.log(2) / Math.log(2));
         if (value == 5) return BigDecimal.valueOf(Math.log(5) / Math.log(2));
-        else return null;
+        else return BigDecimal.valueOf(Math.log(value)/Math.log(2));
     }
 }
+

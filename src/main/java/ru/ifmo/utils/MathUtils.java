@@ -9,11 +9,11 @@ public class MathUtils {
     private static final BigDecimal TWO = BigDecimal.valueOf(2L);
 
     public static BigDecimal sqrt(BigDecimal value) {
-        if(value.compareTo(BigDecimal.ZERO) < 0) {
-            throw new IllegalArgumentException();
-        }
         if(MathUtils.nearZero(value)) {
             return BigDecimal.ZERO;
+        }
+        if(value.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException();
         }
         MathContext mc = new MathContext(20);
         BigDecimal g = value.divide(TWO, mc);

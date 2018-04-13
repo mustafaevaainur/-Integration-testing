@@ -16,6 +16,6 @@ public class CosineStub implements ICosine {
         if (value == Math.PI / 4) return BigDecimal.valueOf(sqrt2div2);
         if (value == -Math.PI / 2) return BigDecimal.valueOf(Math.cos(-Math.PI/2));
         if (value == -Math.PI/4) return BigDecimal.valueOf(Math.cos(-Math.PI/4));
-        else return null;
+        else return BigDecimal.valueOf(Math.cos(value));
     }
 }

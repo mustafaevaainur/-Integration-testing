@@ -14,6 +14,6 @@ public class TangentStub implements ITangent {
         if (value == -Math.PI) return BigDecimal.valueOf(Math.tan(-Math.PI));
         if (value == Math.PI / 4) return BigDecimal.valueOf(Math.tan(Math.PI/4));
         if (value == -Math.PI / 4) return BigDecimal.valueOf(Math.tan(-Math.PI/4));
-        else return null;
+        else return BigDecimal.valueOf(Math.tan(value));
     }
 }

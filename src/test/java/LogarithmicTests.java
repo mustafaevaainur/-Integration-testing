@@ -34,7 +34,6 @@ public class LogarithmicTests {
         assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
     }
 
-
     @Test
     public void Log2Test1() {
         BigDecimal sub = BigDecimal.valueOf(Math.log(1) / Math.log(2)).subtract(log2.calculate(1));

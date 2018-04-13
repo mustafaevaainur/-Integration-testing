@@ -13,16 +13,8 @@ import static org.junit.Assert.assertEquals;
 
 public class CompoundedFunctionTestStub {
 
-    final double EPS = 0.1;
+    final double EPS = 0.001;
 
-   /* Sine fsin = new Sine(EPS);
-    ICosine fcos = new Cosine(fsin);
-    ISecant fsec = new Secant(fsin);
-    ITangent ftan = new Tangent(fsin);
-    ICotangent fcot = new Cotangent(fsin);
-    INaturalLog ln = new NaturalLog(EPS);
-    ILogBaseTwo flog2 = new LogBaseTwo(ln);
-    ILogBaseFive flog5 = new LogBaseFive(ln);*/
     ISine fsin = new SineStub();
     ICosine fcos = new CosineStub(fsin);
     ISecant fsec = new SecantStub(fsin);

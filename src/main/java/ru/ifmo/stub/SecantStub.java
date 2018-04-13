@@ -16,6 +16,6 @@ public class SecantStub implements ISecant {
                 divide(BigDecimal.valueOf(Math.cos(Math.PI/4)), 30, BigDecimal.ROUND_FLOOR);
         if (value == -Math.PI / 4) return BigDecimal.ONE.
                 divide(BigDecimal.valueOf(Math.cos(-Math.PI/4)), 30, BigDecimal.ROUND_FLOOR);
-        else return null;
+        else return BigDecimal.ONE.divide(BigDecimal.valueOf(Math.cos(value)), 30, BigDecimal.ROUND_FLOOR);
     }
 }
