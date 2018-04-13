@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.ifmo.interfaces.ILogBaseFive;
 import ru.ifmo.interfaces.ILogBaseTwo;
@@ -12,62 +13,39 @@ import ru.ifmo.stub.NaturalLogStub;
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class LogarithmicTests {
-    final double EPS = 0.001;
+    final double EPS = 0.01;
 
 
     INaturalLog log = new NaturalLog(EPS);
     ILogBaseTwo log2 = new LogBaseTwo(log);
     ILogBaseFive log5 = new LogBaseFive(log);
 
+    ArrayList<Double> values = new ArrayList<>();
 
-    @Test
-    public void Log2Test05() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(0.5) / Math.log(2)).subtract(log2.calculate(0.5));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    @BeforeEach
+    void init() {
+        values.add(2d);
+        values.add(1.4d);
+        values.add(5d);
+        values.add(0.5d);
     }
 
     @Test
-    public void Log2Test2() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(2) / Math.log(2)).subtract(log2.calculate(2));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    public void Log2Test() {
+        for(Double item : values) {
+            BigDecimal sub = BigDecimal.valueOf(Math.log(item) / Math.log(2)).subtract(log2.calculate(item));
+            assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+        }
     }
 
     @Test
-    public void Log2Test1() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(1) / Math.log(2)).subtract(log2.calculate(1));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    public void Log5Test() {
+        for(Double item : values) {
+            BigDecimal sub = BigDecimal.valueOf(Math.log(item) / Math.log(5)).subtract(log5.calculate(item));
+            assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+        }
     }
-
-    @Test
-    public void Log2Test5() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(5) / Math.log(2)).subtract(log2.calculate(5));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    public void Log5Test05() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(0.5) / Math.log(5)).subtract(log5.calculate(0.5));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    public void Log5Test1() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(1) / Math.log(5)).subtract(log5.calculate(1));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    public void Log5Test2() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(2) / Math.log(5)).subtract(log5.calculate(2));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    public void Log5Test5() {
-        BigDecimal sub = BigDecimal.valueOf(Math.log(5) / Math.log(5)).subtract(log5.calculate(5));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
 }

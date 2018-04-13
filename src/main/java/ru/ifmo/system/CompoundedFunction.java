@@ -40,36 +40,27 @@ public class CompoundedFunction {
         this.flog5 = flog5;
     }
 
-
     public BigDecimal trigonometricFunction(double value) {
-
-
         BigDecimal sin = fsin.calculate(value);
         BigDecimal cos = fcos.calculate(value);
         BigDecimal tan = ftan.calculate(value);
         BigDecimal cot = fcot.calculate(value);
         BigDecimal sec = fsec.calculate(value);
-
-        BigDecimal system = (((sec.divide((tan), 30, BigDecimal.ROUND_FLOOR)
+        return  (((sec.divide((tan), 30, BigDecimal.ROUND_FLOOR)
                 .divide((cot), 30, BigDecimal.ROUND_FLOOR)
                 .multiply(cos)).multiply(sec)).add(cos.divide((sin), 30, BigDecimal.ROUND_FLOOR))
                 .subtract((sin.add(sin))));
-        return system;
     }
-
     //  x > 0 : (((((log_2(x) + log_2(x)) - log_2(x)) * log_2(x)) * log_2(x)) / log_5(x))
 
     public BigDecimal logarithmicFunction(double value) {
-
-
         BigDecimal log2 = flog2.calculate(value);
         BigDecimal log5 = flog5.calculate(value);
-        BigDecimal system = (((((log2.add(log2))
+        return  (((((log2.add(log2))
                 .subtract(log2))
                 .multiply(log2))
                 .multiply(log2))
                 .divide((log5), 30, BigDecimal.ROUND_FLOOR));
-        return system;
     }
 
     public BigDecimal calculate(double value) {

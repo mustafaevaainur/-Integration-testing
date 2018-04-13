@@ -1,8 +1,12 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.ifmo.interfaces.*;
 import ru.ifmo.stub.*;
 import ru.ifmo.trigonometric.*;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 class TrigonometricTests {
@@ -15,111 +19,51 @@ class TrigonometricTests {
     private ITangent tan = new Tangent(sin);
     private ICotangent cotangent = new Cotangent(sin);
     private ISecant sec = new Secant(sin);
+    ArrayList<Double> values = new ArrayList<>();
 
-    @Test
-    void TestCosine0() {
-        BigDecimal sub = BigDecimal.valueOf(Math.cos(0)).subtract(cos.calculate(0));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    @BeforeEach
+    void init() {
+        values.add(-1.3d);
+        values.add(-0.01d);
+        values.add(-5d);
+        values.add(-5.5d);
+        values.add(-7d);
+        values.add(-3d);
+        values.add(-6.7d);
     }
 
     @Test
-    void TestCosinePIdiv2() {
-        BigDecimal sub = BigDecimal.valueOf(Math.cos(Math.PI / 2))
-                .subtract(cos.calculate(Math.PI / 2));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    void TestCosine() {
+        for (Double item : values) {
+            BigDecimal sub = BigDecimal.valueOf(Math.cos(item)).subtract(cos.calculate(item));
+            assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS).abs()), -1);
+        }
     }
 
     @Test
-    void TestCosineMinPIdiv2() {
-        BigDecimal sub = BigDecimal.valueOf(Math.cos(-Math.PI / 2))
-                .subtract(cos.calculate(-Math.PI / 2));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    void TestTangent() {
+        for (Double item : values) {
+            BigDecimal sub = BigDecimal.valueOf(Math.tan(item)).subtract(tan.calculate(item));
+            assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS).abs()), -1);
+        }
     }
 
     @Test
-    void TestCosinePIdiv4() {
-        BigDecimal sub = BigDecimal.valueOf(Math.cos(Math.PI / 4)).subtract(cos.calculate(Math.PI / 4));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+    void TestSecant() {
+        for (Double item : values) {
+            BigDecimal sub = BigDecimal.valueOf(1 / Math.cos(item)).
+                    subtract(sec.calculate(item));
+            assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
+        }
     }
 
     @Test
-    void TestCosineMinPIdiv4() {
-        BigDecimal sub = BigDecimal.valueOf(Math.cos(-Math.PI / 4))
-                .subtract(cos.calculate(-Math.PI / 4));
-        assertTrue(sub.abs().compareTo(BigDecimal.valueOf(EPS)) < 0);
-    }
-
-    @Test
-    void TestTangent0() {
-
-        BigDecimal sub = BigDecimal.valueOf(Math.tan(0)).
-                subtract(tan.calculate(0));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    void TestTangentPI() {
-        BigDecimal sub = BigDecimal.valueOf(Math.tan(Math.PI)).
-                subtract(tan.calculate(Math.PI));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    void TestTangentMinPI() {
-
-        BigDecimal sub = BigDecimal.valueOf(Math.tan(-Math.PI)).
-                subtract(tan.calculate(-Math.PI));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    void TestTangentPIdiv4() {
-        BigDecimal sub = BigDecimal.valueOf(Math.tan(Math.PI / 4)).
-                subtract(tan.calculate(Math.PI / 4));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-    @Test
-    void TestTangentMinPIdiv4() {
-        BigDecimal sub = BigDecimal.valueOf(Math.tan(-Math.PI / 4)).
-                subtract(tan.calculate(-Math.PI / 4));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-
-    @Test
-    void TestSecant0() {
-
-        BigDecimal sub = BigDecimal.valueOf(1 / Math.cos(0)).
-                subtract(sec.calculate(0));
-        assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
-    }
-
-    @Test
-    void TestSecantPIdiv4() {
-        BigDecimal sub = BigDecimal.valueOf(1 / Math.cos(Math.PI/4)).
-                subtract(sec.calculate(Math.PI/4));
-        assertTrue(sub.abs().compareTo(BigDecimal.valueOf(EPS)) < 0);
-    }
-    @Test
-    void TestSecantMinPIdiv4() {
-
-        BigDecimal sub = BigDecimal.valueOf(1 / Math.cos(-Math.PI/4)).
-                subtract(sec.calculate(-Math.PI/4));
-        assertTrue(sub.abs().compareTo(BigDecimal.valueOf(EPS)) < 0);
-    }
-
-    @Test
-    void TestCotangentPI6() {
-        BigDecimal sub = BigDecimal.valueOf(Math.cos(Math.PI / 6) / Math.sin(Math.PI / 6))
-                .subtract(cotangent.calculate(Math.PI / 6));
-        assertTrue(sub.abs().compareTo(BigDecimal.valueOf(EPS)) < 0);
-    }
-
-    @Test
-    void TestCotangentPI2() {
-        BigDecimal sub = BigDecimal.valueOf(Math.cos(Math.PI / 2) / Math.sin(Math.PI / 2))
-                .subtract(cotangent.calculate(Math.PI / 2));
-        assertEquals(true, sub.abs().compareTo(BigDecimal.valueOf(EPS)) < 0);
+    void TestCotangent() {
+        for (Double item : values) {
+            BigDecimal sub = BigDecimal.valueOf(Math.cos(item) / Math.sin(item))
+                    .subtract(cotangent.calculate(item));
+            assertTrue(sub.abs().compareTo(BigDecimal.valueOf(EPS)) < 0);
+        }
     }
 
 }
