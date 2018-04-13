@@ -11,13 +11,13 @@ import java.util.List;
 
 public class Builder {
 
-    ISine iSine;
-    INaturalLog iNaturalLog;
-    CompoundedFunction systemSolver;
-    public Builder(ISine iSine, INaturalLog iNaturalLog, CompoundedFunction systemSolver) {
+    private ISine iSine;
+    private INaturalLog iNaturalLog;
+    private CompoundedFunction compoundedFunction;
+    public Builder(ISine iSine, INaturalLog iNaturalLog, CompoundedFunction compoundedFunction) {
         this.iNaturalLog = iNaturalLog;
         this.iSine = iSine;
-        this.systemSolver = systemSolver;
+        this.compoundedFunction = compoundedFunction;
     }
 
     public List<Pair<BigDecimal, BigDecimal>> drawSine(double from, double to, double step) {
@@ -26,7 +26,7 @@ public class Builder {
         for (double i = from; i < to; i+=step) {
             try {
                 calc = iSine.calculate(i);
-                list.add(new Pair<BigDecimal, BigDecimal>(new BigDecimal(i), calc));
+                list.add(new Pair<>(new BigDecimal(i), calc));
             } catch (Exception ex) {
 
             }
@@ -40,7 +40,21 @@ public class Builder {
         for (double i = from; i < to; i+=step) {
             try {
                 calc = iNaturalLog.calculate(i);
-                list.add(new Pair<BigDecimal, BigDecimal>(new BigDecimal(i), calc));
+                list.add(new Pair<>(new BigDecimal(i), calc));
+            } catch (Exception ex) {
+
+            }
+        }
+        return list;
+    }
+
+    public List<Pair<BigDecimal, BigDecimal>> drawCompoundFunction(double from, double to, double step) {
+        List<Pair<BigDecimal, BigDecimal>> list = new LinkedList<>();
+        BigDecimal calc;
+        for (double i = from; i < to; i+=step) {
+            try {
+                calc = compoundedFunction.calculate(i);
+                list.add(new Pair<>(new BigDecimal(i), calc));
             } catch (Exception ex) {
 
             }

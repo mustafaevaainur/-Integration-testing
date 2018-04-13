@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
 
-        Sine fsin = new Sine(0.001);
+        ISine fsin = new Sine(0.001);
         ICosine fcos = new Cosine(fsin);
         ISecant fsec = new Secant(fsin);
         ITangent ftan = new Tangent(fsin);
@@ -20,9 +20,10 @@ public class Main {
         ILogBaseTwo flog2 = new LogBaseTwo(ln);
         ILogBaseFive flog5 = new LogBaseFive(ln);
         CompoundedFunction system = new CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
+        BigDecimal val = system.calculate(-0.7);
 
-        CSVCreator csvCreator = new CSVCreator();
-        csvCreator.fillFillByNaturalLogValues(-5, 5, 0.1);
+        CSVCreator csvCreator = new CSVCreator(fsin, ln, system);
+        csvCreator.fillFillByCompoundFunctionValues(-12, 12, 0.1);
     }
 }
 

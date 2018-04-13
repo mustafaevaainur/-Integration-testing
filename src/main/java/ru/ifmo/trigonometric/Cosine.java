@@ -15,10 +15,9 @@ public class Cosine implements ICosine {
     }
 
     public BigDecimal calculate(double value) {
-        MathUtils MathUtils = new MathUtils();
         BigDecimal calcSine = sineBase.calculate(value);
         BigDecimal first = calcSine.multiply(calcSine);
         BigDecimal root = MathUtils.sqrt(BigDecimal.ONE.subtract(first));
-        return root;
+        return root.multiply(MathUtils.signOfCosinus(value));
     }
 }

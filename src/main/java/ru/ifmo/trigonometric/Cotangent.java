@@ -15,11 +15,9 @@ public class Cotangent implements ICotangent {
     }
 
     public BigDecimal calculate(double value) {
-        MathUtils MathUtils = new MathUtils();
         BigDecimal calcSine = iSine.calculate(value);
-
         BigDecimal first = calcSine.multiply(calcSine);
-        BigDecimal cos= MathUtils.sqrt(BigDecimal.ONE.subtract(first));
+        BigDecimal cos= MathUtils.sqrt(BigDecimal.ONE.subtract(first)).multiply(MathUtils.signOfCosinus(value));
         return cos.divide(calcSine, 30, BigDecimal.ROUND_FLOOR);
     }
 }

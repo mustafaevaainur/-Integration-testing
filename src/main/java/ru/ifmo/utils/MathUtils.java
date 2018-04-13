@@ -1,16 +1,14 @@
 package ru.ifmo.utils;
 
-import ru.ifmo.interfaces.IMathUtils;
-
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class MathUtils implements IMathUtils {
+public class MathUtils {
 
     private static BigDecimal EPS = BigDecimal.valueOf(0.00001);
     private static final BigDecimal TWO = BigDecimal.valueOf(2L);
 
-    public BigDecimal sqrt(BigDecimal value) {
+    public static BigDecimal sqrt(BigDecimal value) {
         if(value.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException();
         }
@@ -30,10 +28,18 @@ public class MathUtils implements IMathUtils {
             g = r;
         }
         return g;
+//        return new BigDecimal(Math.sqrt(value.doubleValue()));
+    }
+
+    public static BigDecimal signOfCosinus(double value) {
+        double abs = Math.abs(value);
+        if(abs % (2*Math.PI) < Math.PI / 2 || abs % (2*Math.PI) > Math.PI * 1.5) {
+            return BigDecimal.ONE;
+        } else return BigDecimal.ONE.negate();
     }
 
     public static Boolean nearZero(BigDecimal value) {
-        return value.compareTo(MathUtils.EPS) <= 0;
+        return value.abs().compareTo(MathUtils.EPS) <= 0;
     }
 
 }

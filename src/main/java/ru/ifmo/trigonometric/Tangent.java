@@ -15,10 +15,9 @@ public class Tangent implements ITangent {
     }
 
     public BigDecimal calculate(double value) throws IllegalArgumentException {
-        MathUtils MathUtils = new MathUtils();
         BigDecimal calcSine = iSine.calculate(value);
         BigDecimal first = calcSine.multiply(calcSine);
-        BigDecimal cos= MathUtils.sqrt(BigDecimal.ONE.subtract(first));
+        BigDecimal cos= MathUtils.sqrt(BigDecimal.ONE.subtract(first)).multiply(MathUtils.signOfCosinus(value));
         if(MathUtils.nearZero(cos)) {
             throw new IllegalArgumentException();
         }
