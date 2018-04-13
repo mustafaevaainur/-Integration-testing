@@ -17,11 +17,12 @@ public class LogarithmicTests {
     final double EPS = 0.001;
 
 
-    INaturalLog log = new NaturalLogStub();
-    /*INaturalLog log = new NaturalLog(EPS);*/
+    INaturalLog log = new NaturalLogStub(EPS);
     ILogBaseTwo log2 = new LogBaseTwo(log);
     ILogBaseFive log5 = new LogBaseFive(log);
-    /*ILogBaseTwo log2 = new LogBaseTwoStub();
+
+    /*INaturalLog log = new NaturalLog(EPS);
+    ILogBaseTwo log2 = new LogBaseTwoStub();
     ILogBaseFive log5 = new LogBaseFiveStub();*/
 
     @Test

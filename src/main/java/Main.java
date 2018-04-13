@@ -22,8 +22,7 @@ public class Main {
         CompoundedFunction system = new CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
 
         CSVCreator csvCreator = new CSVCreator();
-        csvCreator.fillFillByNaturalLogValues(-5,  5,  0.1);
-
+        csvCreator.fillFillByNaturalLogValues(-5, 5, 0.1);
     }
 }
 
