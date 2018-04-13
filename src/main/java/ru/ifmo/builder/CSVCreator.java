@@ -16,10 +16,11 @@ public class CSVCreator {
     public void fillFillBySinValues(double from, double to, double step) {
         List<Pair<BigDecimal, BigDecimal>> list =  builder.drawSine(from, to, step);
         try(FileWriter writer = new FileWriter("sine.csv", false)) {
+            writer.append("x, y\n");
             for(Pair<BigDecimal, BigDecimal> item : list) {
                 StringBuilder builder =
                         (new StringBuilder(item.getKey().toString()))
-                                .append(" | ")
+                                .append(" , ")
                                 .append(item.getValue().toString())
                                 .append("\n");
                 writer.append(builder);
