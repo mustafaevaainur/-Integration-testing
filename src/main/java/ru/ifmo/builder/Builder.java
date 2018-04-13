@@ -33,4 +33,18 @@ public class Builder {
         }
         return list;
     }
+
+    public List<Pair<BigDecimal, BigDecimal>> drawNaturalLog(double from, double to, double step) {
+        List<Pair<BigDecimal, BigDecimal>> list = new LinkedList<>();
+        BigDecimal calc;
+        for (double i = from; i < to; i+=step) {
+            try {
+                calc = iNaturalLog.calculate(i);
+                list.add(new Pair<BigDecimal, BigDecimal>(new BigDecimal(i), calc));
+            } catch (Exception ex) {
+
+            }
+        }
+        return list;
+    }
 }
