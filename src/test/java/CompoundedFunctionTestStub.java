@@ -1,5 +1,6 @@
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
+import ru.ifmo.builder.CSVCreator;
 import ru.ifmo.interfaces.*;
 import ru.ifmo.logarithmic.LogBaseFive;
 import ru.ifmo.logarithmic.LogBaseTwo;
@@ -28,6 +29,7 @@ public class CompoundedFunctionTestStub {
 
     CompoundedFunction system = new CompoundedFunction(fsin, fcos, fsec, ftan, fcot, ln, flog2, flog5);
     ArrayList<Double> values = new ArrayList<>();
+    CSVCreator csvCreator = new CSVCreator(fsin, ln, system);
 
     @BeforeEach
     void init() {
@@ -59,6 +61,7 @@ public class CompoundedFunctionTestStub {
             BigDecimal sub = system.calculate(value).subtract(value >= 0 ? mathLogResult : mathTangResult);
             assertEquals(sub.abs().compareTo(BigDecimal.valueOf(EPS)), -1);
         }
+        csvCreator.fillFillByCompoundFunctionValues(-10, 5, 0.1);
     }
 
 }

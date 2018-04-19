@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import ru.ifmo.interfaces.INaturalLog;
 import ru.ifmo.interfaces.ISine;
 import ru.ifmo.system.CompoundedFunction;
+import ru.ifmo.utils.MathUtils;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;
@@ -53,10 +54,10 @@ public class Builder {
         BigDecimal calc;
         for (double i = from; i < to; i+=step) {
             try {
-                calc = compoundedFunction.calculate(i);
+                calc = compoundedFunction.calculate(MathUtils.round(i, 1));
                 list.add(new Pair<>(new BigDecimal(i), calc));
             } catch (Exception ex) {
-
+                list.add(new Pair<>(new BigDecimal(i), BigDecimal.ZERO));
             }
         }
         return list;
